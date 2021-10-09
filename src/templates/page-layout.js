@@ -1,6 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import { SEOContext } from 'gatsby-plugin-wpgraphql-seo'
+import { Styles } from '../components/globalStyles'
 const PageLayout = ({ children }) => {
   const {
     allWpMenu: {
@@ -97,6 +98,7 @@ const PageLayout = ({ children }) => {
 
   return (
     <SEOContext.Provider value={{ global: seo }}>
+      <Styles />
       <header>
         <nav>
           <ul>
