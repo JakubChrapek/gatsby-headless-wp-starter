@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "description": "AmbasadaV8",
-  "author": "jakubchrapek",
+  "author": "@kuba.chrapek",
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "kryptonum"
   ],
   "scripts": {
     "develop": "gatsby develop",

@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import colors from '../constants/colors'
 
 export const Styles = createGlobalStyle`
   * {
@@ -16,4 +17,5 @@ export const Styles = createGlobalStyle`
     font-family: "DM Sans";
     margin: 0;
   }
+
 `

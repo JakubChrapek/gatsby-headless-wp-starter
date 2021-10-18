@@ -13,6 +13,7 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
   allWpPage.nodes.map((page) => {
     const { id, uri } = page
+    console.log('CREATED: ', uri)
     return actions.createPage({
       path: uri,
       component: require.resolve(

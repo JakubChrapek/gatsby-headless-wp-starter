@@ -1,27 +1,61 @@
 import * as React from 'react'
+import { graphql } from 'gatsby'
 import Seo from 'gatsby-plugin-wpgraphql-seo'
 import { seoMetaTags } from '../components/seo'
 
-const IndexPage = () => {
-  console.log(seoMetaTags)
+const IndexPage = ({ data: { wpPage } }) => {
+  console.log(wpPage)
   return (
     <>
-      <Seo
-        title='xD'
-        meta={seoMetaTags(
-          'AmbasadaV8',
-          'AppName',
-          'red',
-          'Description, że hoho',
-          'http://ambasadav8.adamchrapek.pl/wp-content/uploads/2021/10/luca-david-HjXbVnnITvE-unsplash-1.jpg',
-          'https://ambasadav8.pl',
-          '@ambasadav8'
-        )}
-      />
+      <Seo post={wpPage} />
       <title>Home Page</title>
-      <h1>Home</h1>
+      <h1>{wpPage.homepage.heroSectionTitle}</h1>
     </>
   )
 }
+
+export const query = graphql`
+  query HomePage {
+    wpPage(id: { eq: "cG9zdDoyOQ==" }) {
+      title
+      content
+      homepage {
+        heroSectionTitle
+        sekcjaPowitalnaTekstPrzycisku
+      }
+      nodeType
+      uri
+      seo {
+        title
+        metaDesc
+        focuskw
+        metaKeywords
+        metaRobotsNoindex
+        metaRobotsNofollow
+        opengraphTitle
+        opengraphDescription
+        opengraphImage {
+          altText
+          sourceUrl
+          srcSet
+        }
+        twitterTitle
+        twitterDescription
+        twitterImage {
+          altText
+          sourceUrl
+          srcSet
+        }
+        canonical
+        cornerstone
+        schema {
+          articleType
+          pageType
+          raw
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage
